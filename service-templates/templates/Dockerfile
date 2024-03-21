@@ -7,7 +7,7 @@ ENV SERVICE_TYPE "{{ ServiceType }}"
 {{ command }}
 {% endfor %}
 
-RUN yarn install
+RUN {{ Dockerfile.InstallCommand }}
 
 {% for command in Dockerfile.PostInstallCommands %}
 {{ command }}

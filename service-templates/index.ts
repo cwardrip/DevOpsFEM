@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from "fs";
 import { configure, render } from "nunjucks";
 
 type BuildJsonDockerfile = {
+    InstallCommand: string;
     PreInstallCommands: string[];
     PostInstallCommands: string[];
 
@@ -27,8 +28,10 @@ function main() {
     configure("templates", { autoescape: true });
 
     const dockerfile = render("Dockerfile", configurationData);
+    const circlecifile = render("circleci.yml", configurationData);
 
     writeFileSync("Dockerfile", dockerfile);
+    writeFileSync("circleci.yml", circlecifile);
 }
 
 main()
