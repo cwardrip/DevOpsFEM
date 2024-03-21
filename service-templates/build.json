@@ -1,0 +1,12 @@
+{
+    "ServiceName": "devops-course",
+    "ServiceType": "frontend",
+    "Dockerfile": {
+        "PreInstallCommands": [
+            "COPY myfile myfile"
+        ],
+        "PostInstallCommands": [
+            "RUN echo yay!"
+        ]
+    }
+}
